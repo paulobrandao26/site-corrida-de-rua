@@ -1,0 +1,40 @@
+{
+  "provas": {
+    "5": [
+      { "nome": "Lucas Andrade", "tempo": "16:42" },
+      { "nome": "Rafael Moura", "tempo": "17:05" },
+      { "nome": "Bruna Teixeira", "tempo": "17:31" },
+      { "nome": "Diego Faria", "tempo": "17:58" },
+      { "nome": "Camila Rocha", "tempo": "18:12" },
+      { "nome": "Thiago Lima", "tempo": "18:40" },
+      { "nome": "Juliana Prado", "tempo": "19:03" },
+      { "nome": "Marcos Vieira", "tempo": "19:22" },
+      { "nome": "Fernanda Costa", "tempo": "19:47" },
+      { "nome": "Pedro Alves", "tempo": "20:10" }
+    ],
+    "10": [
+      { "nome": "Gabriel Souza", "tempo": "33:18" },
+      { "nome": "Felipe Ramos", "tempo": "34:02" },
+      { "nome": "Larissa Melo", "tempo": "35:45" },
+      { "nome": "André Nunes", "tempo": "36:10" },
+      { "nome": "Beatriz Lopes", "tempo": "36:55" },
+      { "nome": "Rodrigo Pinto", "tempo": "37:20" },
+      { "nome": "Aline Duarte", "tempo": "38:04" },
+      { "nome": "Vinícius Cardoso", "tempo": "38:41" },
+      { "nome": "Patrícia Gomes", "tempo": "39:15" },
+      { "nome": "Eduardo Barros", "tempo": "39:50" }
+    ],
+    "21": [
+      { "nome": "Henrique Dias", "tempo": "1:12:34" },
+      { "nome": "Mateus Freitas", "tempo": "1:14:09" },
+      { "nome": "Renata Azevedo", "tempo": "1:16:47" },
+      { "nome": "Caio Martins", "tempo": "1:18:02" },
+      { "nome": "Isabela Ribeiro", "tempo": "1:19:30" },
+      { "nome": "Gustavo Cunha", "tempo": "1:21:11" },
+      { "nome": "Tatiane Moreira", "tempo": "1:22:48" },
+      { "nome": "Leonardo Castro", "tempo": "1:24:05" },
+      { "nome": "Mariana Fonseca", "tempo": "1:25:39" },
+      { "nome": "Bruno Carvalho", "tempo": "1:27:16" }
+    ]
+  }
+}

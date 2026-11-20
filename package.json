@@ -1,0 +1,14 @@
+{
+  "name": "site-corrida",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Eixo Run - inscrição de corrida com Mercado Pago",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mercadopago": "^3.6.2"
+  }
+}

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eixo Run 2026 — Inscrições</title>
+<meta name="description" content="Corrida noturna na Região Metropolitana do Recife, 22 de março de 2026. 5K, 10K e 21K. Inscreva-se e pague pelo Mercado Pago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0e10; --surface:#13161a; --card:#181c21; --line:#2a3038; --line-2:#3b434e;
+  --ink:#f1f3ee; --muted:#9aa3ad;
+  --accent:#c6f432; --accent-dark:#6f8f12; --accent-soft:rgba(198,244,50,.12); --on-accent:#0c0e10;
+  --sea:#c6f432;
+  --danger:#ff6b6b; --warn:#f5b941; --ok:#7fd858;
+  --font-d:'Mona Sans',system-ui,sans-serif; --font-b:'Mona Sans',system-ui,sans-serif;
+  --wide:116%; --r-sm:8px; --r-md:12px; --r-lg:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --pad:clamp(16px,4vw,40px);
+  --r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:1rem;line-height:1.62;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+
+/* topo */
+.nav{position:sticky;top:0;z-index:50;background:rgba(12,14,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--font-d);font-weight:600;font-stretch:var(--wide);font-size:1.15rem;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;min-height:44px}
+.logo i{width:14px;height:14px;background:var(--accent);border-radius:3px;transform:skewX(-12deg)}
+.nav-right{display:flex;align-items:center;gap:4px}
+.nav-link{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-weight:500;color:var(--muted);border-radius:8px;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--ink);background:var(--surface)}
+
+/* botões: sólidos, com degrau 3D leve */
+.btn{--sh:var(--accent-dark);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:var(--r);border:2px solid transparent;font-weight:600;font-size:.98rem;letter-spacing:0;position:relative;top:0;transition:top .12s var(--ease),box-shadow .12s var(--ease),background .2s,border-color .2s,color .2s}
+.btn-volt{background:var(--accent);color:var(--on-accent);border-color:var(--accent-dark);box-shadow:0 4px 0 var(--sh)}
+.btn-volt:hover{background:#d2fb48;top:-2px;box-shadow:0 6px 0 var(--sh)}
+.btn-volt:active{top:3px;box-shadow:0 1px 0 var(--sh)}
+.btn-ghost{--sh:#000;background:var(--card);color:var(--ink);border-color:var(--line-2);box-shadow:0 4px 0 var(--sh)}
+.btn-ghost:hover{top:-2px;box-shadow:0 6px 0 var(--sh)}
+.btn-ghost:active{top:3px;box-shadow:0 1px 0 var(--sh)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.95rem}
+.btn[disabled]{opacity:.65;cursor:wait;top:0}
+
+/* hero */
+.hero{position:relative;color:#fff;background:var(--bg);overflow:hidden;min-height:calc(100svh - 64px);display:flex;align-items:center}
+.hero>.wrap{width:100%}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,12,.88) 0%,rgba(8,10,12,.6) 55%,rgba(8,10,12,.25) 100%)}
+@media(max-width:760px){.hero-bg::after{background:linear-gradient(180deg,rgba(8,10,12,.45) 0%,rgba(8,10,12,.9) 70%)}}
+.hero .wrap{position:relative;padding-top:clamp(64px,10vw,120px);padding-bottom:clamp(36px,6vw,64px)}
+.hero .kicker{font-weight:600;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.hero h1 .hl{color:var(--accent)}
+.hero h1{font-family:var(--font-d);font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:clamp(2.9rem,8.4vw,7.4rem);line-height:.9;letter-spacing:-.02em;max-width:12ch;text-shadow:0 6px 40px rgba(0,0,0,.45)}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px #fff;text-shadow:none}
+.hero h1 .hl{display:inline-block;background:var(--accent);color:var(--on-accent);padding:0 .12em;margin-top:.06em;transform:skewX(-8deg);text-shadow:none}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero .btn-ghost{--sh:rgba(0,0,0,.6);background:rgba(12,14,16,.55);border-color:rgba(255,255,255,.55);color:#fff}
+.hero-info{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(36px,6vw,64px);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-md);background:rgba(8,10,12,.55);backdrop-filter:blur(6px);max-width:860px}
+.hero-info div{padding:14px 18px;border-right:1px solid rgba(255,255,255,.2)}
+.hero-info div:last-child{border-right:none}
+.hero-info dt{font-size:.8rem;color:#a9b2bb;font-weight:500}
+.hero-info dd{font-weight:500;font-size:1rem}
+@media(max-width:760px){.hero-info{grid-template-columns:1fr}.hero-info div{border-right:none;border-bottom:1px solid rgba(255,255,255,.2)}.hero-info div:last-child{border-bottom:none}}
+
+/* seções */
+section{padding:clamp(56px,8vw,96px) 0}
+.sec-title{font-family:var(--font-d);font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:clamp(2.2rem,5vw,4rem);line-height:.95;letter-spacing:-.02em}
+.sec-sub{color:var(--muted);margin-top:8px;max-width:58ch}
+
+/* inscrição */
+#inscricao{background:var(--surface);border-bottom:1px solid var(--line)}
+.insc-grid{display:grid;gap:8px}
+.insc-perks{list-style:none;margin-top:24px;display:grid;gap:12px}
+.insc-perks li{display:flex;gap:12px;align-items:center;font-weight:500}
+.insc-perks li::before{content:'';width:10px;height:10px;flex:none;background:var(--accent);transform:skewX(-12deg)}
+@media(min-width:1000px){
+  .insc-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:56px;align-items:start}
+  .insc-intro{position:sticky;top:110px}
+  .insc-grid .form-box{margin-top:0}
+}
+@media(max-width:999px){.insc-perks{display:none}}
+.form-box{margin-top:28px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(20px,4vw,36px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.steps span{height:6px;border-radius:3px;background:var(--line);transition:background .3s}
+.steps span.on{background:var(--accent)}
+.step-label{font-size:.875rem;color:var(--muted);font-weight:500;margin-bottom:20px}
+.fstep{display:none}
+.fstep.is-active{display:block;animation:up .3s var(--ease)}
+@keyframes up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fstep h3{font-family:var(--font-d);font-weight:600;font-stretch:var(--wide);font-size:1.3rem;letter-spacing:-.02em;margin-bottom:16px}
+
+.provas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:640px){.provas{grid-template-columns:1fr}}
+.provas input{position:absolute;opacity:0;pointer-events:none}
+.prova{position:relative;display:block;border:1.5px solid var(--line);border-radius:var(--r-md);padding:clamp(18px,2vw,26px);background:var(--surface);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.prova:hover{border-color:var(--line-2)}
+.provas input:checked + .prova{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 3px var(--accent-soft)}
+.provas input:checked + .prova::after{content:'✓';position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.8rem;font-weight:700;display:grid;place-items:center}
+.provas input:focus-visible + .prova{outline:3px solid var(--sea);outline-offset:2px}
+.prova .dist{font-family:var(--font-d);font-weight:800;font-stretch:125%;font-size:clamp(2.2rem,3.4vw,3rem);line-height:1;letter-spacing:-.03em}
+.prova .dist small{font-size:.5em;margin-left:2px;color:var(--muted)}
+.prova .desc{color:var(--muted);font-size:.95rem;margin:4px 0 12px}
+.prova .preco{font-weight:600;font-variant-numeric:tabular-nums;font-size:1.15rem;color:var(--accent)}
+.prova .tag{display:inline-block;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:4px;margin-bottom:8px}
+.incluso{color:var(--muted);font-size:.95rem;margin-top:14px}
+
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.frow{grid-template-columns:1fr;gap:0}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label,.flabel{font-size:.875rem;font-weight:500;color:#c9d0d6}
+.field input{background:var(--surface);color-scheme:dark;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:0 14px;min-height:50px;color:var(--ink);font-family:inherit;font-size:1rem;outline:none;width:100%;transition:border-color .15s,box-shadow .15s}
+.field input::placeholder{color:#66707b}
+.field input:focus{border-color:var(--sea);box-shadow:0 0 0 3px var(--accent-soft)}
+.field .err{font-size:.9rem;color:var(--danger);display:none}
+.field.has-error .err{display:block}
+.field.has-error input{border-color:var(--danger)}
+.shirts{display:flex;gap:8px;flex-wrap:wrap}
+.shirts input{position:absolute;opacity:0;pointer-events:none}
+.shirts label{min-width:54px;min-height:48px;display:grid;place-items:center;border:1.5px solid var(--line);border-radius:var(--r-sm);background:var(--surface);cursor:pointer;font-weight:500;transition:all .15s}
+.shirts label:hover{border-color:var(--line-2)}
+.shirts input:checked + label{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.shirts input:focus-visible + label{outline:3px solid var(--sea);outline-offset:2px}
+
+.resumo{border:1px solid var(--line);border-radius:var(--r-md);padding:6px 18px;background:var(--surface);margin-bottom:18px}
+.resumo div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.resumo div:last-child{border-bottom:none}
+.resumo b{color:var(--ink);text-align:right;font-weight:600}
+.resumo .total{font-size:1.1rem}
+.resumo .total span{color:var(--ink);font-weight:600}
+.resumo .total b{font-family:var(--font-d);font-weight:600;font-stretch:var(--wide);font-size:1.45rem;letter-spacing:-.02em;color:var(--accent)}
+.terms{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:.98rem;margin-bottom:6px}
+.terms input{margin-top:3px;width:20px;height:20px;accent-color:var(--accent);flex-shrink:0}
+.terms-err{font-size:.9rem;color:var(--danger);display:none;margin-bottom:10px}
+.terms-err.show{display:block}
+.seguro{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.seguro svg{flex-shrink:0;margin-top:2px}
+.alert{display:none;margin-top:16px;border-radius:8px;padding:14px 16px;font-size:.95rem;border:1px solid rgba(255,107,107,.45);background:rgba(255,107,107,.08);color:#ffd2d2}
+.alert.show{display:block}
+.fnav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+.fnav .btn-volt{margin-left:auto}
+@media(max-width:480px){.fnav .btn{flex:1}}
+
+/* resultado */
+.result{display:none;text-align:center;padding:12px 0}
+.result.is-active{display:block;animation:up .4s var(--ease)}
+.result .ico{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;font-size:1.7rem;font-weight:700;color:var(--on-accent);background:var(--accent)}
+.result.warn .ico{background:var(--warn)}
+.result.bad .ico{background:var(--danger)}
+.result h3{font-family:var(--font-d);font-weight:600;font-stretch:var(--wide);font-size:1.6rem;letter-spacing:-.02em}
+.result p{color:var(--muted);max-width:46ch;margin:10px auto 22px}
+
+/* inscritos */
+#inscritos{border-bottom:1px solid var(--line)}
+.search{max-width:420px;margin:22px 0 4px}
+.nomes{list-style:none;margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:900px){.nomes{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:340px){.nomes{grid-template-columns:1fr}}
+.nomes li{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r-sm);padding:11px 14px;font-weight:500;line-height:1.3;overflow-wrap:anywhere;background:var(--card)}
+.vazio{color:var(--muted);margin-top:18px}
+#verMais{margin-top:20px}
+
+/* ranking */
+#ranking{background:var(--surface);border-bottom:1px solid var(--line)}
+.aviso-exemplo{display:inline-block;margin-top:14px;font-size:.9rem;color:var(--warn);border:1px solid rgba(245,185,65,.4);background:rgba(245,185,65,.08);border-radius:6px;padding:6px 12px}
+.tabs{display:inline-flex;margin:22px 0 16px;border:2px solid var(--line-2);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.tabs button{min-width:84px;min-height:46px;font-stretch:var(--wide);border:none;border-right:2px solid var(--line-2);background:transparent;color:var(--ink);font-weight:700;font-size:1rem;transition:background .15s,color .15s}
+.tabs button:last-child{border-right:none}
+.tabs button:hover{background:var(--surface)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--on-accent)}
+.rank{list-style:none;max-width:780px;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+.rank li{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line)}
+.rank li:last-child{border-bottom:none}
+.rank li:first-child{background:var(--accent-soft)}
+.rank .pos{font-family:var(--font-d);font-weight:600;font-variant-numeric:tabular-nums;font-size:1rem;color:var(--muted)}
+.rank li:nth-child(-n+3) .pos{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:1.05rem;color:var(--on-accent);background:var(--accent)}
+.rank .nm{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank .tm{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
+
+/* dúvidas */
+.faq{margin-top:24px;max-width:780px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:500;font-size:1.02rem;display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'';width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .2s;flex-shrink:0;margin-right:4px}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq p{color:var(--muted);padding:0 0 18px;max-width:64ch}
+
+footer{padding:32px 0 36px;font-size:.92rem;background:var(--surface);color:var(--muted);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:underline;color:var(--ink)}
+
+/* barra do celular */
+.mobile-cta{display:none}
+@media(max-width:760px){
+  .nav .btn-sm{display:none}
+  .nav-link{padding:0 10px}
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;background:rgba(19,22,26,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 16px calc(12px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
+  .mobile-cta span{font-size:.95rem;color:var(--muted)}
+  .mobile-cta span b{color:var(--ink)}
+  .mobile-cta.is-hidden{transform:translateY(110%)}
+  footer{padding-bottom:110px}
+}
+@media(max-width:380px){
+  .logo{font-size:1.25rem}
+  .nav-link{padding:0 7px;font-size:.95rem}
+  .nav-right{gap:0}
+}
+@media(max-width:340px){
+  .mobile-cta span{display:none}
+  .mobile-cta .btn{flex:1}
+}
+/* como funciona: tela fixa enquanto rola */
+.pin{position:relative;height:300vh;border-bottom:1px solid var(--line)}
+.pin-stage{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;align-items:center;overflow:hidden}
+.pin-grid{position:relative;z-index:1;width:100%}
+.pin-grid>div:first-child{max-width:980px}
+.pin-kicker{font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.pin-steps{display:grid}
+.pin-step{grid-area:1/1;opacity:0;transform:translateY(24px);transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none}
+.pin-step.on{opacity:1;transform:none;pointer-events:auto}
+.pin-num{font-family:var(--font-d);font-stretch:125%;font-weight:800;font-size:clamp(4rem,10vw,8rem);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--accent);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.pin-step h3{font-family:var(--font-d);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,7.5vw,6.2rem);line-height:.92;letter-spacing:-.02em;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+.pin-step h3 .out{display:block;color:transparent;-webkit-text-stroke:2px var(--ink);text-shadow:none}
+.pin-step p{color:#d3d8de;font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:44ch}
+.pin-bar{display:flex;gap:8px;margin-top:22px}
+.pin-bar span{width:56px;height:5px;border-radius:2px;background:rgba(255,255,255,.2);transition:background .3s}
+.pin-bar span.on{background:var(--accent)}
+.pin-photo{position:absolute;inset:0;z-index:0}
+.pin-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,14,16,.94) 0%,rgba(12,14,16,.75) 45%,rgba(12,14,16,.35) 100%)}
+.pin-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.4s var(--ease)}
+.pin-photo img.zoom{transform:scale(1)}
+@media(max-width:760px){
+  .pin-photo::after{background:linear-gradient(180deg,rgba(12,14,16,.55) 0%,rgba(12,14,16,.9) 55%)}
+  .pin-stage{align-items:flex-end;padding-bottom:96px}
+}
+@media (prefers-reduced-motion: reduce){
+  .pin{height:auto}
+  .pin-stage{position:relative;height:auto;padding:64px 0}
+  .pin-step{grid-area:auto;opacity:1;transform:none;margin-bottom:40px}
+  .pin-bar{display:none}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Eixo Run, início"><i></i>Eixo Run</a>
+    <div class="nav-right">
+      <a href="#inscritos" class="nav-link">Inscritos</a>
+      <a href="#ranking" class="nav-link">Ranking</a>
+      <a href="#inscricao" class="btn btn-volt btn-sm">Inscreva-se</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1502224562085-639556652f33?w=1920&q=75&auto=format&fit=crop" alt="" fetchpriority="high"></div>
+  <div class="wrap">
+    <p class="kicker">Corrida noturna 2026</p>
+    <h1>A cidade é<br> <span class="out">a sua</span> <span class="hl">pista</span></h1>
+    <div class="hero-actions">
+      <a href="#inscricao" class="btn btn-volt">Fazer minha inscrição</a>
+      <a href="#duvidas" class="btn btn-ghost">Tirar dúvidas</a>
+    </div>
+    <dl class="hero-info">
+      <div><dt>Data</dt><dd>Domingo, 22 de março, 19h30</dd></div>
+      <div><dt>Local</dt><dd>Região Metropolitana do Recife</dd></div>
+      <div><dt>Distâncias</dt><dd>5 km, 10 km e 21 km</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="pin" id="como-funciona" aria-label="Como funciona">
+  <div class="pin-stage">
+    <div class="pin-photo"><img src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?w=1200&q=75&auto=format&fit=crop" alt="Corredores numa avenida durante uma prova" loading="lazy"></div>
+    <div class="wrap pin-grid">
+      <div>
+        <p class="pin-kicker">Da inscrição à largada</p>
+        <div class="pin-steps">
+          <div class="pin-step on">
+            <div class="pin-num" aria-label="Etapa 1 de 3">01</div>
+            <h3>Escolha sua <span class="out">distância</span></h3>
+            <p>5 km, 10 km ou 21 km. Todas com camiseta técnica, chip de cronometragem, medalha e hidratação.</p>
+          </div>
+          <div class="pin-step">
+            <div class="pin-num" aria-label="Etapa 2 de 3">02</div>
+            <h3>Pague com <span class="out">segurança</span></h3>
+            <p>Cartão, PIX ou boleto pelo Mercado Pago. Seu nome entra na lista de inscritos assim que o pagamento é aprovado.</p>
+          </div>
+          <div class="pin-step">
+            <div class="pin-num" aria-label="Etapa 3 de 3">03</div>
+            <h3>Retire o kit <span class="out">e corra</span></h3>
+            <p>Retirada do kit em 20 e 21 de março. Largada no domingo, 22 de março, às 19h30.</p>
+          </div>
+        </div>
+        <div class="pin-bar" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inscricao">
+  <div class="wrap">
+    <div class="insc-grid">
+    <div class="insc-intro">
+      <h2 class="sec-title">Inscrição</h2>
+      <p class="sec-sub">Três passos rápidos. O pagamento é feito no Mercado Pago, com cartão, PIX ou boleto.</p>
+      <ul class="insc-perks">
+        <li>Camiseta técnica</li><li>Chip de cronometragem</li><li>Medalha e hidratação</li>
+      </ul>
+    </div>
+
+    <div class="form-box">
+      <div id="progress">
+        <div class="steps" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+        <div class="step-label" id="stepLabel">Etapa 1 de 3: escolha a prova</div>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div class="fstep is-active" id="step1">
+        <h3>Qual distância?</h3>
+        <div class="provas" role="radiogroup" aria-label="Prova">
+          <input type="radio" name="prova" id="p5" value="5">
+          <label class="prova" for="p5"><div class="dist">5<small>K</small></div><div class="desc">Corrida ou caminhada</div><div class="preco">R$ 89</div></label>
+          <input type="radio" name="prova" id="p10" value="10" checked>
+          <label class="prova" for="p10"><span class="tag">Mais escolhida</span><div class="dist">10<small>K</small></div><div class="desc">O clássico noturno</div><div class="preco">R$ 119</div></label>
+          <input type="radio" name="prova" id="p21" value="21">
+          <label class="prova" for="p21"><div class="dist">21<small>K</small></div><div class="desc">Meia maratona</div><div class="preco">R$ 179</div></label>
+        </div>
+        <p class="incluso">Todas incluem camiseta técnica, chip de cronometragem, medalha e hidratação.</p>
+        <div class="fnav"><button type="button" class="btn btn-volt" data-next="2">Continuar</button></div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div class="fstep" id="step2">
+        <h3>Seus dados</h3>
+        <div class="field" id="f-nome"><label for="inNome">Nome completo</label><input id="inNome" type="text" autocomplete="name" placeholder="Como no documento"><span class="err">Digite nome e sobrenome.</span></div>
+        <div class="frow">
+          <div class="field" id="f-email"><label for="inEmail">E-mail</label><input id="inEmail" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com"><span class="err">E-mail inválido. Confira o @ e o final (ex.: @gmail.com).</span></div>
+          <div class="field" id="f-tel"><label for="inTel">Celular com DDD</label><input id="inTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"><span class="err">Digite o celular com DDD.</span></div>
+        </div>
+        <div class="frow">
+          <div class="field" id="f-cpf"><label for="inCpf">CPF</label><input id="inCpf" type="text" inputmode="numeric" maxlength="14" placeholder="000.000.000-00"><span class="err">CPF inválido. Confira os 11 números.</span></div>
+          <div class="field" id="f-nasc"><label for="inNasc">Data de nascimento</label><input id="inNasc" type="date" autocomplete="bday"><span class="err">Idade mínima: 16 anos.</span></div>
+        </div>
+        <div class="field">
+          <span class="flabel" id="shirtLbl">Tamanho da camiseta</span>
+          <div class="shirts" role="radiogroup" aria-labelledby="shirtLbl">
+            <input type="radio" name="camiseta" id="sP" value="P"><label for="sP">P</label>
+            <input type="radio" name="camiseta" id="sM" value="M" checked><label for="sM">M</label>
+            <input type="radio" name="camiseta" id="sG" value="G"><label for="sG">G</label>
+            <input type="radio" name="camiseta" id="sGG" value="GG"><label for="sGG">GG</label>
+            <input type="radio" name="camiseta" id="sXG" value="XG"><label for="sXG">XG</label>
+          </div>
+        </div>
+        <div class="fnav">
+          <button type="button" class="btn btn-ghost" data-back="1">Voltar</button>
+          <button type="button" class="btn btn-volt" data-next="3">Revisar e pagar</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div class="fstep" id="step3">
+        <h3>Confira e pague</h3>
+        <div class="resumo" id="resumo"></div>
+        <label class="terms"><input type="checkbox" id="inTermos"><span>Estou apto(a) para a prova, aceito o regulamento e autorizo meu nome na lista pública de inscritos.</span></label>
+        <div class="terms-err" id="termsErr">Marque a caixa acima para continuar.</div>
+        <div class="fnav">
+          <button type="button" class="btn btn-ghost" data-back="2">Voltar</button>
+          <button type="button" class="btn btn-volt" id="btnPagar">Pagar com Mercado Pago</button>
+        </div>
+        <div class="alert" id="alerta" role="alert"></div>
+        <p class="seguro">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d8ff3e" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <span>Você vai para a página segura do Mercado Pago. Os dados do cartão não passam pelo nosso site.</span>
+        </p>
+      </div>
+
+      <!-- RESULTADO (volta do Mercado Pago) -->
+      <div class="result" id="result">
+        <div class="ico" id="rIco">✓</div>
+        <h3 id="rTitle">Inscrição confirmada!</h3>
+        <p id="rText"></p>
+        <a href="#inscricao" class="btn btn-ghost" id="rBtn">Fazer outra inscrição</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="inscritos">
+  <div class="wrap">
+    <h2 class="sec-title">Inscritos</h2>
+    <p class="sec-sub" id="inscCount">Carregando…</p>
+    <div class="field search" id="buscaBox" hidden>
+      <label for="busca">Procurar meu nome</label>
+      <input id="busca" type="search" placeholder="Digite um nome" autocomplete="off">
+    </div>
+    <ol class="nomes" id="listaNomes"></ol>
+    <p class="vazio" id="nomesVazio" hidden></p>
+    <button type="button" class="btn btn-ghost" id="verMais" hidden>Ver todos</button>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="wrap">
+    <h2 class="sec-title">Ranking</h2>
+    <p class="sec-sub">Os 10 primeiros de cada distância.</p>
+    <p class="aviso-exemplo" id="avisoExemplo" hidden>Exemplo. Os resultados reais aparecem aqui depois da prova.</p>
+    <div class="tabs" role="tablist" aria-label="Distância">
+      <button type="button" role="tab" data-tab="5" aria-selected="false">5K</button>
+      <button type="button" role="tab" data-tab="10" aria-selected="true">10K</button>
+      <button type="button" role="tab" data-tab="21" aria-selected="false">21K</button>
+    </div>
+    <ol class="rank" id="rankLista"></ol>
+    <p class="vazio" id="rankVazio" hidden>Os resultados aparecem aqui depois da prova.</p>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap">
+    <h2 class="sec-title">Dúvidas</h2>
+    <div class="faq">
+      <details><summary>Onde vai ser a corrida?</summary><p>Na Região Metropolitana do Recife, como Recife e Camaragibe. O local exato da largada será avisado por e-mail a todos os inscritos.</p></details>
+      <details><summary>Onde e quando retiro o kit?</summary><p>Dias 20 e 21 de março, das 10h às 20h. O endereço da retirada vai no e-mail de confirmação. Leve documento com foto.</p></details>
+      <details><summary>Posso passar minha inscrição para outra pessoa?</summary><p>Sim, sem custo até 10 de março de 2026. Escreva para o e-mail de contato com o CPF usado na inscrição.</p></details>
+      <details><summary>O pagamento é seguro?</summary><p>Sim. Todo o pagamento é feito no Mercado Pago. Seu cartão não passa pelo nosso site. A inscrição só é confirmada quando o Mercado Pago aprova o pagamento.</p></details>
+      <details><summary>E se chover?</summary><p>A corrida acontece normalmente. Só muda em caso de alerta da Defesa Civil, com aviso por e-mail.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Eixo Run. <a href="mailto:atletas@eixorun.example">atletas@eixorun.example</a></span>
+    <span>Pagamentos por Mercado Pago. Foto: Unsplash.</span>
+  </div>
+</footer>
+
+<div class="mobile-cta" id="mobileCta">
+  <span>A partir de <b>R$ 89</b></span>
+  <a href="#inscricao" class="btn btn-volt btn-sm">Inscreva-se</a>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const PROVAS = { '5': ['Corrida 5K', 89], '10': ['Corrida 10K', 119], '21': ['Meia Maratona 21K', 179] };
+const LABELS = { 1: 'escolha a prova', 2: 'seus dados', 3: 'falta só pagar' };
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rolarAte = el => el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+
+/* topo */
+addEventListener('scroll', () => $('#nav').classList.toggle('is-scrolled', scrollY > 30), { passive: true });
+new IntersectionObserver(([e]) => $('#mobileCta').classList.toggle('is-hidden', e.isIntersecting), { threshold: .05 }).observe($('#inscricao'));
+
+/* máscaras */
+$('#inCpf').addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+  v = v.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  e.target.value = v;
+});
+$('#inTel').addEventListener('input', e => {
+  const d = e.target.value.replace(/\D/g, '').slice(0, 11);
+  let v = d;
+  if (d.length > 2) v = `(${d.slice(0,2)}) ${d.slice(2)}`;
+  if (d.length > 6) v = `(${d.slice(0,2)}) ${d.slice(2, d.length === 11 ? 7 : 6)}-${d.slice(d.length === 11 ? 7 : 6)}`;
+  e.target.value = v;
+});
+
+/* validação */
+function cpfValido(cpf){
+  cpf = cpf.replace(/\D/g, '');
+  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+  let s = 0; for (let i = 0; i < 9; i++) s += +cpf[i] * (10 - i);
+  let r = (s * 10) % 11; if (r === 10) r = 0;
+  if (r !== +cpf[9]) return false;
+  s = 0; for (let i = 0; i < 10; i++) s += +cpf[i] * (11 - i);
+  r = (s * 10) % 11; if (r === 10) r = 0;
+  return r === +cpf[10];
+}
+const REGRAS = {
+  'f-nome':  () => $('#inNome').value.trim().split(/\s+/).length >= 2,
+  'f-email': () => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($('#inEmail').value.trim()),
+  'f-tel':   () => $('#inTel').value.replace(/\D/g, '').length >= 10,
+  'f-cpf':   () => cpfValido($('#inCpf').value),
+  'f-nasc':  () => { const v = $('#inNasc').value; return !!v && (Date.now() - new Date(v)) / 31557600000 >= 16; }
+};
+const checar = id => { const ok = REGRAS[id](); $('#' + id).classList.toggle('has-error', !ok); return ok; };
+Object.keys(REGRAS).forEach(id => {
+  const inp = $('#' + id + ' input');
+  inp.addEventListener('blur', () => { if (inp.value) checar(id); });
+  inp.addEventListener('input', () => { if ($('#' + id).classList.contains('has-error')) checar(id); });
+});
+
+const dados = () => ({
+  prova: $('input[name="prova"]:checked').value,
+  camiseta: $('input[name="camiseta"]:checked').value,
+  nome: $('#inNome').value.trim(),
+  email: $('#inEmail').value.trim(),
+  tel: $('#inTel').value,
+  cpf: $('#inCpf').value,
+  nasc: $('#inNasc').value,
+  termos: $('#inTermos').checked
+});
+
+/* etapas */
+function irPara(n){
+  $$('.fstep').forEach(f => f.classList.remove('is-active'));
+  $('#result').classList.remove('is-active');
+  $('#progress').style.display = '';
+  $('#step' + n).classList.add('is-active');
+  $$('.steps span').forEach((s, i) => s.classList.toggle('on', i < n));
+  $('#stepLabel').textContent = `Etapa ${n} de 3: ${LABELS[n]}`;
+  $('#alerta').classList.remove('show');
+  if (n === 3) montarResumo();
+  rolarAte($('#inscricao'));
+}
+$$('[data-next]').forEach(b => b.addEventListener('click', () => {
+  const n = +b.dataset.next;
+  if (n === 3) {
+    const ok = Object.keys(REGRAS).map(checar).every(Boolean);
+    if (!ok) { const f = $('#step2 .has-error input'); f && f.focus(); return; }
+  }
+  irPara(n);
+}));
+$$('[data-back]').forEach(b => b.addEventListener('click', () => irPara(+b.dataset.back)));
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+function montarResumo(){
+  const d = dados(), [nome, preco] = PROVAS[d.prova];
+  $('#resumo').innerHTML = `
+    <div><span>Prova</span><b>${nome}</b></div>
+    <div><span>Atleta</span><b>${esc(d.nome)}</b></div>
+    <div><span>E-mail</span><b>${esc(d.email)}</b></div>
+    <div><span>Camiseta</span><b>${d.camiseta}</b></div>
+    <div class="total"><span>Total</span><b>R$ ${preco},00</b></div>`;
+}
+
+$('#inTermos').addEventListener('change', e => { if (e.target.checked) $('#termsErr').classList.remove('show'); });
+
+/* pagamento */
+$('#btnPagar').addEventListener('click', async () => {
+  const d = dados();
+  if (!d.termos) { $('#termsErr').classList.add('show'); return; }
+  const btn = $('#btnPagar');
+  btn.disabled = true; btn.textContent = 'Abrindo o Mercado Pago…';
+  $('#alerta').classList.remove('show');
+  try {
+    const r = await fetch('/api/inscricao', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.url) throw new Error(j.erro || 'Não foi possível abrir o pagamento.');
+    location.href = j.url;
+  } catch (err) {
+    $('#alerta').textContent = err.message === 'Failed to fetch' ? 'Sem conexão com o servidor. Confira sua internet e tente de novo.' : `${err.message} Se precisar, fale com a organização pelo e-mail no fim da página.`;
+    $('#alerta').classList.add('show');
+    btn.disabled = false; btn.textContent = 'Pagar com Mercado Pago';
+  }
+});
+
+/* volta do Mercado Pago: o status é confirmado no servidor */
+(async function retorno(){
+  const q = new URLSearchParams(location.search);
+  const status = q.get('status');
+  if (!status) return;
+  const mostrar = (tipo, ico, titulo, texto, btn) => {
+    $$('.fstep').forEach(f => f.classList.remove('is-active'));
+    $('#progress').style.display = 'none';
+    const r = $('#result');
+    r.className = 'result is-active ' + tipo;
+    $('#rIco').textContent = ico; $('#rTitle').textContent = titulo; $('#rText').textContent = texto; $('#rBtn').textContent = btn;
+    history.replaceState(null, '', location.pathname + '#inscricao');
+    setTimeout(() => rolarAte($('#inscricao')), 50);
+  };
+  if (status === 'teste') {
+    return mostrar('', '✓', 'Inscrição de teste feita', 'O site está em modo teste, então nada foi cobrado. Quando o Mercado Pago for ligado, aqui aparece a confirmação real.', 'Fazer outra inscrição');
+  }
+  const payId = q.get('payment_id') || q.get('collection_id');
+  let real = null;
+  if (payId) {
+    try { const r = await fetch('/api/pagamento/' + encodeURIComponent(payId)); if (r.ok) real = (await r.json()).status; } catch {}
+  }
+  const st = real || 'desconhecido';
+  if (st === 'approved') mostrar('', '✓', 'Inscrição confirmada!', 'Pagamento aprovado. Você vai receber a confirmação por e-mail. Leve documento com foto na retirada do kit.', 'Fazer outra inscrição');
+  else if (st === 'pending' || st === 'in_process' || status === 'pendente') mostrar('warn', '…', 'Aguardando pagamento', 'Se pagou com PIX ou boleto, a confirmação chega por e-mail assim que o Mercado Pago aprovar.', 'Fazer outra inscrição');
+  else mostrar('bad', '!', 'Pagamento não aprovado', 'O pagamento não foi concluído e nada foi cobrado. Você pode tentar de novo com outro cartão ou PIX.', 'Tentar de novo');
+})();
+$('#rBtn').addEventListener('click', e => { e.preventDefault(); irPara(1); });
+
+/* inscritos (só nomes) */
+(async function inscritos(){
+  const LIMITE = 20;
+  let nomes = [], todos = false;
+  try { const r = await fetch('/api/inscritos'); nomes = (await r.json()).nomes || []; } catch {}
+  $('#inscCount').textContent = nomes.length
+    ? `${nomes.length} ${nomes.length === 1 ? 'pessoa inscrita' : 'pessoas inscritas'} até agora.`
+    : 'Ainda não há inscrições confirmadas. Seja o primeiro!';
+  $('#buscaBox').hidden = nomes.length < 10;
+  function render(){
+    const q = $('#busca').value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    let lista = q ? nomes.filter(n => n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q)) : nomes;
+    const cortar = !q && !todos && lista.length > LIMITE;
+    $('#verMais').hidden = !cortar;
+    $('#verMais').textContent = `Ver todos (${lista.length})`;
+    if (cortar) lista = lista.slice(0, LIMITE);
+    $('#listaNomes').innerHTML = lista.map(n => `<li>${esc(n)}</li>`).join('');
+    $('#nomesVazio').hidden = !(q && !lista.length);
+    $('#nomesVazio').textContent = 'Nenhum nome encontrado. Confira a grafia.';
+  }
+  $('#busca').addEventListener('input', render);
+  $('#verMais').addEventListener('click', () => { todos = true; render(); });
+  render();
+})();
+
+/* ranking top 10 */
+(async function ranking(){
+  let dadosR = { provas: {} };
+  try { const r = await fetch('/api/ranking'); dadosR = await r.json(); } catch {}
+  $('#avisoExemplo').hidden = !dadosR.exemplo;
+  function mostrar(p){
+    $$('.tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === p));
+    const lista = (dadosR.provas[p] || []).slice(0, 10);
+    $('#rankVazio').hidden = lista.length > 0;
+    $('#rankLista').hidden = !lista.length;
+    $('#rankLista').innerHTML = lista.map((c, i) =>
+      `<li><span class="pos" aria-label="${i + 1}º lugar">${i < 3 ? i + 1 : (i + 1) + 'º'}</span><span class="nm">${esc(c.nome)}</span><span class="tm">${esc(c.tempo || '')}</span></li>`).join('');
+  }
+  $$('.tabs button').forEach(b => b.addEventListener('click', () => mostrar(b.dataset.tab)));
+  mostrar('10');
+})();
+
+/* como funciona: troca a etapa conforme a rolagem */
+(function pin(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sec = $('#como-funciona'), steps = $$('.pin-step'), bars = $$('.pin-bar span'), img = $('.pin-photo img');
+  let atual = 0, pedido = false;
+  function atualizar(){
+    pedido = false;
+    const r = sec.getBoundingClientRect();
+    const total = sec.offsetHeight - innerHeight;
+    const prog = Math.min(1, Math.max(0, -r.top / total));
+    const i = Math.min(steps.length - 1, Math.floor(prog * steps.length));
+    img.classList.toggle('zoom', r.top < innerHeight * .5);
+    if (i === atual) return;
+    atual = i;
+    steps.forEach((s, k) => s.classList.toggle('on', k === i));
+    bars.forEach((b, k) => b.classList.toggle('on', k <= i));
+  }
+  addEventListener('scroll', () => { if (!pedido) { pedido = true; requestAnimationFrame(atualizar); } }, { passive: true });
+  atualizar();
+})();
+</script>
+</body>
+</html>
