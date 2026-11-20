@@ -1,0 +1,22 @@
+/* hero */
+.hero{position:relative;color:#fff;background:var(--bg);overflow:hidden;min-height:calc(100svh - 64px);display:flex;align-items:center}
+.hero>.wrap{width:100%}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,12,.88) 0%,rgba(8,10,12,.6) 55%,rgba(8,10,12,.25) 100%)}
+@media(max-width:760px){.hero-bg::after{background:linear-gradient(180deg,rgba(8,10,12,.45) 0%,rgba(8,10,12,.9) 70%)}}
+.hero .wrap{position:relative;padding-top:clamp(64px,10vw,120px);padding-bottom:clamp(36px,6vw,64px)}
+.hero .kicker{font-weight:600;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.hero h1 .hl{color:var(--accent)}
+.hero h1{font-family:var(--font-d);font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:clamp(2.9rem,8.4vw,7.4rem);line-height:.9;letter-spacing:-.02em;max-width:12ch;text-shadow:0 6px 40px rgba(0,0,0,.45)}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px #fff;text-shadow:none}
+.hero h1 .hl{display:inline-block;background:var(--accent);color:var(--on-accent);padding:0 .12em;margin-top:.06em;transform:skewX(-8deg);text-shadow:none}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero .btn-ghost{--sh:rgba(0,0,0,.6);background:rgba(12,14,16,.55);border-color:rgba(255,255,255,.55);color:#fff}
+.hero-info{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(36px,6vw,64px);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-md);background:rgba(8,10,12,.55);backdrop-filter:blur(6px);max-width:860px}
+.hero-info div{padding:14px 18px;border-right:1px solid rgba(255,255,255,.2)}
+.hero-info div:last-child{border-right:none}
+.hero-info dt{font-size:.8rem;color:#a9b2bb;font-weight:500}
+.hero-info dd{font-weight:500;font-size:1rem}
+@media(max-width:760px){.hero-info{grid-template-columns:1fr}.hero-info div{border-right:none;border-bottom:1px solid rgba(255,255,255,.2)}.hero-info div:last-child{border-bottom:none}}
+

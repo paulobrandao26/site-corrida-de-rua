@@ -1,0 +1,11 @@
+/* botões: sólidos, com degrau 3D leve */
+.btn{--sh:var(--accent-dark);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border-radius:var(--r);border:2px solid transparent;font-weight:600;font-size:.98rem;letter-spacing:0;position:relative;top:0;transition:top .12s var(--ease),box-shadow .12s var(--ease),background .2s,border-color .2s,color .2s}
+.btn-volt{background:var(--accent);color:var(--on-accent);border-color:var(--accent-dark);box-shadow:0 4px 0 var(--sh)}
+.btn-volt:hover{background:#d2fb48;top:-2px;box-shadow:0 6px 0 var(--sh)}
+.btn-volt:active{top:3px;box-shadow:0 1px 0 var(--sh)}
+.btn-ghost{--sh:#000;background:var(--card);color:var(--ink);border-color:var(--line-2);box-shadow:0 4px 0 var(--sh)}
+.btn-ghost:hover{top:-2px;box-shadow:0 6px 0 var(--sh)}
+.btn-ghost:active{top:3px;box-shadow:0 1px 0 var(--sh)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.95rem}
+.btn[disabled]{opacity:.65;cursor:wait;top:0}
+

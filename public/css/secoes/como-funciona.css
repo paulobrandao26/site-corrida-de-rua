@@ -1,0 +1,30 @@
+/* como funciona: tela fixa enquanto rola */
+.pin{position:relative;height:300vh;border-bottom:1px solid var(--line)}
+.pin-stage{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;align-items:center;overflow:hidden}
+.pin-grid{position:relative;z-index:1;width:100%}
+.pin-grid>div:first-child{max-width:980px}
+.pin-kicker{font-size:1rem;color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.pin-steps{display:grid}
+.pin-step{grid-area:1/1;opacity:0;transform:translateY(24px);transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none}
+.pin-step.on{opacity:1;transform:none;pointer-events:auto}
+.pin-num{font-family:var(--font-d);font-stretch:125%;font-weight:800;font-size:clamp(4rem,10vw,8rem);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--accent);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.pin-step h3{font-family:var(--font-d);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,7.5vw,6.2rem);line-height:.92;letter-spacing:-.02em;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+.pin-step h3 .out{display:block;color:transparent;-webkit-text-stroke:2px var(--ink);text-shadow:none}
+.pin-step p{color:#d3d8de;font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:44ch}
+.pin-bar{display:flex;gap:8px;margin-top:22px}
+.pin-bar span{width:56px;height:5px;border-radius:2px;background:rgba(255,255,255,.2);transition:background .3s}
+.pin-bar span.on{background:var(--accent)}
+.pin-photo{position:absolute;inset:0;z-index:0}
+.pin-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,14,16,.94) 0%,rgba(12,14,16,.75) 45%,rgba(12,14,16,.35) 100%)}
+.pin-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.4s var(--ease)}
+.pin-photo img.zoom{transform:scale(1)}
+@media(max-width:760px){
+  .pin-photo::after{background:linear-gradient(180deg,rgba(12,14,16,.55) 0%,rgba(12,14,16,.9) 55%)}
+  .pin-stage{align-items:flex-end;padding-bottom:96px}
+}
+@media (prefers-reduced-motion: reduce){
+  .pin{height:auto}
+  .pin-stage{position:relative;height:auto;padding:64px 0}
+  .pin-step{grid-area:auto;opacity:1;transform:none;margin-bottom:40px}
+  .pin-bar{display:none}
+}

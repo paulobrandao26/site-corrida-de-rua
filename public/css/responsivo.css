@@ -1,0 +1,20 @@
+/* barra do celular */
+.mobile-cta{display:none}
+@media(max-width:760px){
+  .nav .btn-sm{display:none}
+  .nav-link{padding:0 10px}
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;background:rgba(19,22,26,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 16px calc(12px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
+  .mobile-cta span{font-size:.95rem;color:var(--muted)}
+  .mobile-cta span b{color:var(--ink)}
+  .mobile-cta.is-hidden{transform:translateY(110%)}
+  footer{padding-bottom:110px}
+}
+@media(max-width:380px){
+  .logo{font-size:1.25rem}
+  .nav-link{padding:0 7px;font-size:.95rem}
+  .nav-right{gap:0}
+}
+@media(max-width:340px){
+  .mobile-cta span{display:none}
+  .mobile-cta .btn{flex:1}
+}
